@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "downlevelIteration": true,
+        "importHelpers": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "outDir": "./dist/",
+        "removeComments": true,
+        "strict": true,
+        "target": "es5"
+    },
+    "include": [
+        "src/index.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
