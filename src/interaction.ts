@@ -91,7 +91,7 @@ export class Interaction {
 
     private startLongPressTimeout() {
         this.stopLongPressTimeout();
-        this.interactionTimeout = setTimeout(this.storeLine.bind(this), 1500);
+        this.interactionTimeout = setTimeout(this.storeLine.bind(this), 1000);
     }
     private stopLongPressTimeout() {
         if (this.interactionTimeout) {
