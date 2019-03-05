@@ -8,13 +8,16 @@
     "test": "echo \"Error: no test specified\"",
     "build": "npm run clean && rollup -c",
     "start": "rollup -cw",
-    "clean": "rm -rf dist .cache"
+    "clean": "rm -rf dist .cache",
+    "deploy": "npm run clean && npm run build && gh-pages -d dist"
   },
-  "author": "",
+  "author": "David García Miguel <noxwings@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "rollup": "^1.4.1",
     "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-copy": "^0.2.3",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-serve": "^1.0.1",
