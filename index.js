@@ -693,6 +693,7 @@
                 return;
             }
             this.sampledLines.push(line);
+            this.matchingLine = null;
             this.drawInteraction.clearLine();
         };
         Example.prototype.removeSample = function () {
@@ -702,8 +703,9 @@
             var indexToDelete = (this.matchingLine)
                 ? this.sampledLines.indexOf(this.matchingLine)
                 : this.sampledLines.length - 1;
-            this.matchingLine = null;
             this.sampledLines.splice(indexToDelete, 1);
+            this.matchingLine = null;
+            this.drawInteraction.clearLine();
         };
         return Example;
     }());
