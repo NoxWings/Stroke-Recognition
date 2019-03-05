@@ -61,6 +61,8 @@ class Example {
         if (!line || !line.points.length) { return; }
 
         this.sampledLines.push(line);
+
+        this.matchingLine = null;
         this.drawInteraction.clearLine();
     }
 
@@ -71,8 +73,10 @@ class Example {
             ? this.sampledLines.indexOf(this.matchingLine)
             : this.sampledLines.length - 1;
 
-        this.matchingLine = null;
         this.sampledLines.splice(indexToDelete, 1);
+
+        this.matchingLine = null;
+        this.drawInteraction.clearLine();
     }
 }
 
