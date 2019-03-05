@@ -17,6 +17,7 @@ class Example {
 
         this.drawInteraction.on(lineDrawEvent, this.executeMatching.bind(this));
         this.ui.addButton.addEventListener("click", this.addSample.bind(this));
+        this.ui.removeButton.addEventListener("click", this.removeSample.bind(this));
     }
 
     public render() {
@@ -44,6 +45,7 @@ class Example {
         });
 
         this.ui.addButton.style.left = `${getXPosition(this.sampledLines.length)}px`;
+        this.ui.removeButton.style.left = `${getXPosition(this.sampledLines.length + 1)}px`;
     }
 
     private executeMatching(line: Line) {
@@ -56,10 +58,21 @@ class Example {
 
     private addSample() {
         const { line } = this.drawInteraction;
-        if (line && line.points.length > 1) {
-            this.sampledLines.push(line);
-            this.drawInteraction.clearLine();
-        }
+        if (!line || !line.points.length) { return; }
+
+        this.sampledLines.push(line);
+        this.drawInteraction.clearLine();
+    }
+
+    private removeSample() {
+        if (!this.sampledLines.length) { return; }
+
+        const indexToDelete = (this.matchingLine)
+            ? this.sampledLines.indexOf(this.matchingLine)
+            : this.sampledLines.length - 1;
+
+        this.matchingLine = null;
+        this.sampledLines.splice(indexToDelete, 1);
     }
 }
 

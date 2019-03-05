@@ -357,7 +357,7 @@ canvas {
   height: 100%;
 }
 
-button#addButton {
+button {
   position: fixed;
   top: 10px;
   left: 10px;
@@ -366,8 +366,7 @@ button#addButton {
   border-radius: 20%;
 }
 
-button#addButton:after {
-  content:'+';
+button:after {
   line-height: 50px;
   font-size: 25px;
 }
