@@ -2,14 +2,14 @@ import { Vec2 } from "./vec2";
 import { Line } from "./line";
 
 interface LineRenderOptions {
-    position?: Vec2
-    color?: string
-    width?: number
+    position?: Vec2;
+    color?: string;
+    width?: number;
 }
 
 export class LineRenderer {
     private height: number = 0;
-    private width: number = 0
+    private width: number = 0;
     private ctx: CanvasRenderingContext2D;
 
     constructor(private canvas: HTMLCanvasElement) {
@@ -24,12 +24,12 @@ export class LineRenderer {
         this.onResize();
     }
 
-    public clear () {
+    public clear() {
         this.ctx.clearRect(0, 0, this.width, this.height);
     }
 
     public renderLine(line: Line, options: LineRenderOptions = {}) {
-        if (line.points.length <= 1) return;
+        if (line.points.length <= 1) { return; }
 
         const position = options.position || new Vec2();
         this.ctx.strokeStyle = options.color || "#000";

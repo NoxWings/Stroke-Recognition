@@ -19,7 +19,7 @@ const config = {
         }),
         commonjs({
             include: "node_modules/**",
-            sourceMap: false
+            sourceMap: false,
         }),
         typescript({
             typescript: require("typescript"),
